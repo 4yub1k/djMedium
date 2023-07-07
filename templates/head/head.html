@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<div class="center">
+    <h2 style="text-align: center;padding: 10px 12px">Generate Custom Headings for Medium Blog</h2>
+    <form action={% url 'head' %} method="post">
+        {% csrf_token %}
+        {{ form.as_div }}
+        <input type="submit" value="Submit">
+    </form>
+    <script>
+        {% comment %} update value here{% endcomment %}
+        document.getElementById("id_url").value = '{{url}}' {% comment %}Don't use (safe){% endcomment %}
+    </script>
+    {% if output %}
+        <h2>{{ heading }}</h2>
+        <div id="outputHeading">
+            <button id="copy" type="button" onclick="copyText()">Copy</button>
+            {{ output|safe }}    {% comment %}Don't save heading to database, or clean it{% endcomment %}
+        </div>
+    {% endif %}
+    <div class="footer">
+        <a href="https://github.com/4yub1k"> Author: Salah Ud Din</a>
+    </div>
+</div>
+{% endblock head %}
