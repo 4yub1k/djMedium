@@ -66,7 +66,7 @@ class Medium:
 
     def listOrder(self, tag="", mark=""):
         return [
-            f"<{tag}>{mark}<a href={self.url}{head['href']}'>{head['sub_head']}</a></{tag}>"
+            f"<{tag}>{mark}<a href={self.url}{head['href']}>{head['sub_head']}</a></{tag}>"
             for head in self.headings_id_dict
         ]
 
