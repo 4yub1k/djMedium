@@ -8,7 +8,8 @@ Easily generate Content list for your Medium blog.
 
 ### Usage:
 While writing a blog, Select the heading you want to add to contents list as shown below.\
-![image](https://github.com/4yub1k/djMedium/assets/45902447/5bd70a3f-ca02-4aca-b2e6-2c8ff8782cc3)\
+![image](https://github.com/4yub1k/djMedium/assets/45902447/d42ce5de-8ddd-4256-81fd-856709a30bda)
+
 ### Example:
 My Blog URL : [[blog](https://medium.com/@4yub1k/free-deploy-django-project-to-pythonanywhere-1f3f08a6447f)]
 Go to the main page of Web app (MedContent).\
@@ -26,7 +27,7 @@ Select type of contents marking you want.
   ![image](https://github.com/4yub1k/djMedium/assets/45902447/733a1101-30ce-4a4e-971d-19c02df2a4a9)
 
 **Copy:**\
-You can easly copy the contents by clicky copy button just above contents. Or you can just select contents using mouse.\
+You can easly copy the contents by clicking copy button just above contents. Or you can just select contents using mouse.\
 ![image](https://github.com/4yub1k/djMedium/assets/45902447/4bf01b57-9c61-4222-91fe-48118c15124f)
 
 Paste it in your Medium Blog.\
