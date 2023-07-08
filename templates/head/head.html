@@ -4,19 +4,27 @@
 {% block head %}
 <div class="center">
     <h2 style="text-align: center;padding: 10px 12px">Generate Custom Headings for Medium Blog</h2>
-    <form action={% url 'head' %} method="post">
+    <form class="formClass" action={% url 'head' %} method="post">
         {% csrf_token %}
         {{ form.as_div }}
         <input type="submit" value="Submit">
     </form>
-    <script>
-        {% comment %} update value here{% endcomment %}
-        document.getElementById("id_url").value = '{{url}}' {% comment %}Don't use (safe){% endcomment %}
-    </script>
+    {% comment "method 1" %}
+        method 1 to pass value
+        update value here
+        document.getElementById("id_url").value = '{{url}}' Don't use (safe)
+    {% endcomment %}
+
+    {% comment "method 2" %}
+        method 2 more secure way, more about this cool json_script goto this url
+        https://docs.djangoproject.com/en/4.1/ref/templates/builtins/#json-script
+    {% endcomment %}
+    {{ formData|json_script:"formDataDict" }}
+
     {% if output %}
         <h2>{{ heading }}</h2>
         <div id="outputHeading">
-            <button id="copy" type="button" onclick="copyText()">Copy</button>
+            <button id="copy" type="button">Copy</button>
             {{ output|safe }}    {% comment %}Don't save heading to database, or clean it{% endcomment %}
         </div>
     {% endif %}

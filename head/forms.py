@@ -9,7 +9,8 @@ class HeadingForm(forms.Form):
         label="Type",
         choices=options,
         initial="ol",
-        widget=forms.RadioSelect(attrs={"onclick": "check()"}),
+        widget=forms.RadioSelect(),
+        # widget=forms.RadioSelect(attrs={"onclick": "check()"}),  # Add attribute  
         required=True,
     )
     mark = forms.CharField(label="Mark", max_length=1, required=False)

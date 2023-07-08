@@ -31,7 +31,11 @@ class Heading(FormView):
         extra_context = {
             "output": med.formattedHtml(mark=mark, type_order=type_order),
             "heading": options.get(form.cleaned_data.get("choice"), ""),
-            "url": self.request.POST.get("url"),  # You can use "self.request.POST"
+            "formData": {
+                "url": self.request.POST.get("url", ''),
+                "choice": self.request.POST.get("choice", ''),
+                "mark": self.request.POST.get("mark", ''),
+            },  # You can use "self.request.POST.get("url") for ul only"
             "form": self.form_class(),  # Reset form, you reset it using javascript also.
         }
         return self.render_to_response(context | extra_context)
