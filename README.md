@@ -1,9 +1,9 @@
 # MedContent
-Easily generate Content list for your Medium blog. 
+Easily generate Content list for your Medium blog. Save your time. 
 
 ![](https://img.shields.io/badge/Django-4.2.3-green)
 ![](https://img.shields.io/badge/Python-3.11.1-lightgreen)
-![](https://github.com/4yub1k/djblog/actions/workflows/djMed.yml/badge.svg)
+![](https://github.com/4yub1k/djMedium/actions/workflows/djMed.yml/badge.svg)
 ![](https://img.shields.io/badge/Release-1.0.0-orange)
 
 ### Usage:
