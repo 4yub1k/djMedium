@@ -1,6 +1,7 @@
-from bs4 import BeautifulSoup
-from requests import get
 import logging
+
+from bs4 import BeautifulSoup
+import requests
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
@@ -28,13 +29,32 @@ class Medium:
                 raise ValueError("Please provide URL, it is empty!.")
 
             logger.info(f"Get url: {self.url}")
-            with get(self.url, headers={"user-agent": ua}) as resp:
+            with requests.get(self.url, headers={"user-agent": ua}) as resp:
                 # self.resp = resp.content
                 self.headings_id_dict = self.getHeadings(resp.content)
+
+        except requests.exceptions.MissingSchema as urlE:
+            logger.exception(urlE)
+            raise
+        except requests.HTTPError as httpE:
+            logger.exception(httpE)
+            raise
+        except requests.exceptions.ConnectionError as connectionE:
+            logger.exception(connectionE)
+            raise
+        except requests.exceptions.Timeout as timeoutE:
+            logger.exception(timeoutE)
+            raise
+        except requests.RequestException as RequestE:   # Cover all exceptions while handling requests
+            logger.exception(RequestE)
+            raise
+
         except TypeError as typeE:
             logger.exception(typeE)
+            raise
         except ValueError as valueE:
             logger.exception(valueE)
+            raise
 
     def getHeadings(self, html_content):
         logger.info("Getting page source (HTML).")
@@ -79,7 +99,7 @@ class Medium:
 
 
 if __name__ == "__main__":
-    med = Medium(url, ua)
+    med = Medium("http://*", ua)
     print(med.htmlGenerate())
     print(med.plainPrint())
     print(med.formattedHtml(mark="", type_order="ul"))
