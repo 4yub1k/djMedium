@@ -6,6 +6,44 @@ Easily generate Content list for your Medium blog. Save your time.
 ![](https://github.com/4yub1k/djMedium/actions/workflows/djMed.yml/badge.svg)
 ![](https://img.shields.io/badge/Release-1.0.2-orange)
 
+### Installation:
+1. Clone:
+   ```
+   >> git clone https://github.com/4yub1k/djMedium.git
+   >> cd djMedium
+    ```
+3. Setup virtual environment:
+   - Windows:
+      ```
+      >> python -m venv .venv
+      >> .venv\Scripts\activate
+      ```
+    - Linux:
+         ```
+        >> python3 -m venv .venv
+        >> source .venv/bin/activate
+        ```
+5. Install requirements:
+      - Windows:
+         ```
+         >> pip install -r requirements.txt
+         ```
+    - Linux:
+       ```
+       >> pip3 install -r requirements.txt
+       ```
+4. Run:
+
+    - Windows:
+     ```
+     py manage.py runserver
+     ```
+    - Linux:
+     ```
+     python3 manage.py runserver
+     ```
+
+
 ### Usage:
 While writing a blog, Select the heading you want to add to contents list as shown below.\
 ![image](https://github.com/4yub1k/djMedium/assets/45902447/d42ce5de-8ddd-4256-81fd-856709a30bda)
